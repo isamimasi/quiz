@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="w3-display-middle">
+  <!--  h1 class="w3-jumbo w3-animate-top">
+ログイン後
+</h1-->
+<p class="w3-large w3-center">マジカルクイズツアー</p>
+<hr class="w3-border-grey" style="margin:auto;width:40%">
+    <p class="w3-large w3-center">ログイン後<br>サービスを開始します</p>
+<br>
+<div class="w3-animate-input"><p>
+<form action="./trGet" method="PUT">
+<label for="UserNamae" accesskey="m">ユーザー名: </label><br><input type="text" name="UserNamae" id="UserNamae" value={{Dict["name"]}}><br><br>
+<label for="CalendarAge" accesskey="m">年齢: </label><select name="CalendarAge" class="w3-select">
+{% for age in range(5,Dict["age"],1) %}
+<option value={{age}}>{{age}}</option>
+{% endfor %}
+<option value={{Dict["age"]}} selected>{{Dict["age"]}}</option>
+{% for age in range(Dict["age"]+1,100,1) %}
+<option value={{age}}>{{age}}</option>
+{% endfor %}
+</select><br><br>
+<label for="theme" accesskey="m">テーマ: </label><select name="theme" class="w3-select">
+{% for theme in Dict["theme"]%}
+<option value={{theme}}>{{theme}}</option>
+{% endfor %}
+<br><br></select></p>
+<input type="hidden" name="pathID" id="pathID" value="login">
+<input type="hidden" name="questions" id="questions" value=0>
+<input type="submit" value="スタート" ><br>
+</form>
+	</div>
+	</div>
+</div>
+
+
+{% endblock %}

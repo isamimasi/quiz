@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  <div class="w3-display-middle">
+<h3>　第{{Dict["page"]+1}}問<br>
+	　{{Dict["q"]}}</h3>
+							<form action="./trGet" method="get">
+							<input type="hidden" name="UserNamae" value={{Dict["UserNamae"]}}>
+							<input type="hidden" name="CalendarAge" value={{Dict["CalendarAge"]}}>
+							<input type="hidden" name="theme" value={{Dict["theme"]}}>
+							<input type="hidden" name="pathID" id="pathID" value="login">
+							<input type="hidden" name="questions" id="questions" value={{Dict["page"]+1}}>
+					<div class="form-group"><h3>
+　A:<input class="w3-check" type="radio"name="answer" value={{Dict["answerList"][0]}} id="N1">
+					 <label for="N1" accesskey="m">{{Dict["answerList"][0]}}</label><br>
+						　B:<input class="w3-check" type="radio"name="answer" value={{Dict["answerList"][1]}} id="N2">
+					 <label for="N2" accesskey="m">{{Dict["answerList"][1]}}</label><br>
+					 	　C:<input class="w3-check" type="radio"name="answer" value={{Dict["answerList"][2]}} id="N3">
+					 <label for="N3" accesskey="m">{{Dict["answerList"][2]}}</label><br></h3>
+					　<input type="submit" value="回　答" class="btn btn-primary">
+									<br><br>
+									<p>　<h2>{{Dict["message1"]}}</h2>
+<br>{% if Dict["page"]>0 %}
+　*前問について：{{Dict["note"]}}
+									{% endif %}</p>
+
+
+									</form>
+								</div></div>
+
+
+
+
+
+{% endblock %}

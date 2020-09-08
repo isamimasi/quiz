@@ -1,0 +1,4 @@
+flask
+pandas
+xlrd
+Flask-Session
