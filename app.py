@@ -47,7 +47,7 @@ def transit_get():
         Dict["message1"]="エラーです"
         Dict["message2"]=[""]
         return render_template(html,Dict=Dict)
-"""
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
@@ -58,6 +58,7 @@ if __name__ == '__main__':
     # 特に本番稼働するファイルでは debug=True としてはいけない!
     #app.run(debug=False)
     app.run(debug=True)
+"""
 
 
 
