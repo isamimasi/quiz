@@ -1,10 +1,3 @@
-
-##################################################
-# .//trGet?pathID=xxxx でページを遷移します。
-# .//trGet?pathID=xxxx  pathID brings to a HTML page
-#
-#
-#########################################################
 from flask import  session
 import pandas as pd
 import random
