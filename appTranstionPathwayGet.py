@@ -44,11 +44,15 @@ def pathwayFromGet(request_args):
             finddf=df[df["INDEX"]==Dict["questionList"][Dict["page"]-1]]
             Dict["note"] =(finddf["note"].values[0])
             ####答えあわせ
-            if NewDict["answer"]==finddf["correct"].values[0]:
-                session["correct"]=session["correct"]+1
-                Dict["message1"]="◎正解:{}/10".format(session["correct"])
+            if "answer" in NewDict.keys():
+                if NewDict["answer"]==finddf["correct"].values[0]:
+                    session["correct"]=session["correct"]+1
+                    Dict["message1"]="◎正解:{}/10".format(session["correct"])
+                else:
+                    Dict["message1"]="×誤り:{}/10".format(session["correct"])
             else:
-                Dict["message1"]="×誤り:{}/10".format(session["correct"])
+                Dict["message1"]="回答してください"
+                Dict["page"]=Dict["page"]-1
         #10問で終わり
         if int(NewDict["questions"])>9:
             html="HTML03_results.html"
