@@ -1,3 +1,10 @@
+
+##################################################
+# .//trGet?pathID=xxxx でページを遷移します。
+# .//trGet?pathID=xxxx  pathID brings to a HTML page
+#
+#
+#########################################################
 from flask import  session
 import pandas as pd
 import random
@@ -57,6 +64,15 @@ def pathwayFromGet(request_args):
             session["answer"] =finddf["correct"].values[0]
             Dict["answerList"]=[finddf["correct"].values[0],finddf["wrong1"].values[0],finddf["wrong2"].values[0]]
             random.shuffle(Dict["answerList"])
+            ##3択にするか？それとも入力式にするか？
+            if (finddf["wrong1"].count())>0:
+                #３択式
+                Dict["quizForm"]="three"
+                print ("three")
+            else:
+                #入力式
+                Dict["quizForm"]="one"
+                print ("one")
             ###質問
             Dict["q"]=finddf["q"].values[0]
             Dict["UserNamae"]=NewDict["UserNamae"]
