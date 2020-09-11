@@ -5,7 +5,7 @@ import pandas as pd
 #app = MyFlask(__name__)
 #app.config['STATIC_FOLDER'] = 'foo'
 app = Flask(__name__)
-app.secret_key = "tekitouni123"
+app.secret_key = os.environ['app_secret_key_for_Cookie']
 def simplePass(digitNumber):
     import random
     hiraganaList =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
